@@ -9,9 +9,12 @@ spec:
       app: hello
   template:
     metadata:
+      annotations:
+        io.containerd.cri.runtime-handler: kata-qemu-sev
       labels:
         app: hello
     spec:
+      runtimeClassName: kata-qemu-sev
       containers:
       - name: hello
         image: tanakaryuki/hello-service:latest

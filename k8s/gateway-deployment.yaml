@@ -9,9 +9,12 @@ spec:
       app: gateway
   template:
     metadata:
+      annotations:
+        io.containerd.cri.runtime-handler: kata-qemu-sev
       labels:
         app: gateway
     spec:
+      runtimeClassName: kata-qemu-sev
       containers:
       - name: gateway
         image: tanakaryuki/gateway-service:latest
