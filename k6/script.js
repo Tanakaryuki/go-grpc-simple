@@ -2,12 +2,12 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export let options = {
-    vus: 10,
-    duration: '30s',
+    vus: 500,
+    duration: '60s',
 };
 
 export default function () {
-    let url = 'http://127.0.0.1:59789';
+    let url = 'http://localhost:8080';
     let res = http.get(`${url}/hello`);
     check(res, {
         'status is 200': (r) => r.status === 200,
