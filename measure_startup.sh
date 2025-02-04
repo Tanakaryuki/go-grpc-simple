@@ -10,10 +10,7 @@ start_time=$(gdate +%s%N)
 echo "Kubernetes マニフェストを適用中..."
 kubectl apply -f k8s/
 
-echo "gateway のロールアウトを待機中..."
 kubectl rollout status deployment/gateway --timeout=300s
-
-echo "hello のロールアウトを待機中..."
 kubectl rollout status deployment/hello --timeout=300s
 
 # end_time=$(date +%s%N)
